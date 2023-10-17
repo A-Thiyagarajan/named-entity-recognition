@@ -1,45 +1,27 @@
-# Named Entity Recognition
+# Named Entiry Recognition
 
 ## AIM
-
 To develop an LSTM-based model for recognizing the named entities in the text.
 
 ## Problem Statement and Dataset
-
-1. We aim to develop an LSTM-based neural network model using Bidirectional Recurrent Neural Networks for recognizing the named entities in the text.
-2. The dataset used has a number of sentences, and each words have their tags.
-3. We have to vectorize these words using Embedding techniques to train our model.
-4. Bidirectional Recurrent Neural Networks connect two hidden layers of opposite directions to the same output.
-
+#### For the given Dataset which consists of various sentences , we have to develop a model to correctly predict the tag for each word in the sentence and classify it its corrosponding clas
+![output](./images/dataset.png)
 
 ## DESIGN STEPS
-
 ### STEP 1:
-
-Download and load the dataset to colab.
+Import the required packages and dataset 
 ### STEP 2:
-
-Scale the data using MinMaxScaler
+Create the model with LSTM
 ### STEP 3:
-
-Split the data into train and test.
+Compile the model 
 ### STEP 4:
+Train and test the model with datas.
 
-Build the LSTM based recurrent neural network
-### STEP 5:
-
-Train the model with training data
-### STEP 6:
-
-Evaluate the model with the testing data
-### STEP 7:
-Plot the Stock prediction plot
 
 ## PROGRAM
-
-```
-Name: Thiyagarajan A
-Ref.no: 212222240110
+```python
+## Kavinraja D
+## 212222240047
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
@@ -60,6 +42,7 @@ print("Unique tags are:", tags)
 num_words = len(words)
 num_tags = len(tags)
 num_words
+
 class SentenceGetter(object):
     def __init__(self, data):
         self.n_sent = 1
@@ -81,6 +64,7 @@ class SentenceGetter(object):
 getter = SentenceGetter(data)
 sentences = getter.sentences
 len(sentences)
+sentences[0]
 word2idx = {w: i + 1 for i, w in enumerate(words)}
 tag2idx = {t: i for i, t in enumerate(tags)}
 word2idx
@@ -89,15 +73,14 @@ plt.show()
 X1 = [[word2idx[w[0]] for w in s] for s in sentences]
 type(X1[0])
 X1[0]
-max_len = 50
+max_length = 50
 X[0]
 y1 = [[tag2idx[w[2]] for w in s] for s in sentences]
 y = sequence.pad_sequences(maxlen=max_len,
                   sequences=y1,
                   padding="post",
                   value=tag2idx["O"])
-X_train, X_test, y_train, y_test = train_test_split(X, y,
-                                                    test_size=0.2, random_state=1)
+X_train, X_test, y_train, y_test = train_test_split(X, y,test_size=0.2, random_state=1)
 
 model.summary()
 # Write your code here
@@ -123,19 +106,20 @@ print("{:15}{:5}\t {}\n".format("Word", "True", "Pred"))
 print("-" *30)
 for w, true, pred in zip(X_test[i], y_true, p[0]):
     print("{:15}{}\t{}".format(words[w-1], tags[true], tags[pred]))
+    
 ```
+
 ## OUTPUT
+### Accuracy vs val_accuracy
+![output](./images/accuracy%20vs%20val.png)
 
-### Training Loss, Validation Loss Vs Iteration Plot
-
-![62](https://github.com/A-Thiyagarajan/named-entity-recognition/assets/118707693/97b4309c-920f-431b-a05a-fe171fc68f57)
+### Loss vs Val_loss
+![output](./images/loss%20vs%20val_loss.png)
 
 
 ### Sample Text Prediction
-
-![63](https://github.com/A-Thiyagarajan/named-entity-recognition/assets/118707693/f05ec5aa-6eb6-4cad-85f7-42053b80532c)
-
+![output](./images/sample%20text.png)
 
 
 ## RESULT
-Successfully developed LSTM based rnn model for named-entity-recognition.
+Thus an LSTM-based model for recognizing the named entities in the text has been developed successfully.
