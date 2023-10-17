@@ -5,7 +5,9 @@ To develop an LSTM-based model for recognizing the named entities in the text.
 
 ## Problem Statement and Dataset
 #### For the given Dataset which consists of various sentences , we have to develop a model to correctly predict the tag for each word in the sentence and classify it its corrosponding clas
-![output](./images/dataset.png)
+
+![dataset](https://github.com/A-Thiyagarajan/named-entity-recognition/assets/118707693/83df4594-22d4-4191-8d4f-9df87dae2e87)
+
 
 ## DESIGN STEPS
 ### STEP 1:
@@ -111,14 +113,17 @@ for w, true, pred in zip(X_test[i], y_true, p[0]):
 
 ## OUTPUT
 ### Accuracy vs val_accuracy
-![output](./images/accuracy%20vs%20val.png)
+
+![accuracy vs val](https://github.com/A-Thiyagarajan/named-entity-recognition/assets/118707693/94593bb5-5450-418b-9d59-a1d6c3dcd1f7)
 
 ### Loss vs Val_loss
-![output](./images/loss%20vs%20val_loss.png)
+
+![loss vs val_loss](https://github.com/A-Thiyagarajan/named-entity-recognition/assets/118707693/7174370b-0b27-4c93-b2cb-3761b1cb9938)
 
 
 ### Sample Text Prediction
-![output](./images/sample%20text.png)
+![sample text](https://github.com/A-Thiyagarajan/named-entity-recognition/assets/118707693/e5a14205-98a2-4acb-9278-c02343214658)
+
 
 
 ## RESULT
