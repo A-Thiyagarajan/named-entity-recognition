@@ -21,9 +21,9 @@ Train and test the model with datas.
 
 
 ## PROGRAM
-```python
-## Kavinraja D
-## 212222240047
+```
+Name: Thiyagarajan A
+Ref.no: 212222240110
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
