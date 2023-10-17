@@ -6,9 +6,11 @@ To develop an LSTM-based model for recognizing the named entities in the text.
 
 ## Problem Statement and Dataset
 
-## Neural Network Model
+1. We aim to develop an LSTM-based neural network model using Bidirectional Recurrent Neural Networks for recognizing the named entities in the text.
+2. The dataset used has a number of sentences, and each words have their tags.
+3. We have to vectorize these words using Embedding techniques to train our model.
+4. Bidirectional Recurrent Neural Networks connect two hidden layers of opposite directions to the same output.
 
-Include the neural network model diagram.
 
 ## DESIGN STEPS
 
@@ -86,14 +88,9 @@ plt.hist([len(s) for s in sentences], bins=50)
 plt.show()
 X1 = [[word2idx[w[0]] for w in s] for s in sentences]
 type(X1[0])
+X1[0]
 max_len = 50
-nums = [[1], [2, 3], [4, 5, 6]]
-sequence.pad_sequences(nums)
-nums = [[1], [2, 3], [4, 5, 6]]
-sequence.pad_sequences(nums,maxlen=2)
-X = sequence.pad_sequences(maxlen=max_len,
-                  sequences=X1, padding="post",
-                  value=num_words-1)
+X[0]
 y1 = [[tag2idx[w[2]] for w in s] for s in sentences]
 y = sequence.pad_sequences(maxlen=max_len,
                   sequences=y1,
@@ -101,18 +98,7 @@ y = sequence.pad_sequences(maxlen=max_len,
                   value=tag2idx["O"])
 X_train, X_test, y_train, y_test = train_test_split(X, y,
                                                     test_size=0.2, random_state=1)
-input_word = layers.Input(shape=(max_len,))
-# Write your code here   
-embedding_layer=layers.Embedding(input_dim=num_words,
-                                 output_dim=50,
-                                 input_length=max_len)(input_word)
-dropout_layer=layers.SpatialDropout1D(0.1)(embedding_layer)
-bidirectional_lstm=layers.Bidirectional(
-    layers.LSTM(units=100,return_sequences=True,
-                recurrent_dropout=0.1))(dropout_layer)
-output=layers.TimeDistributed(
-    layers.Dense(num_tags, activation="softmax"))(bidirectional_lstm)
-model = Model(input_word, output)
+
 model.summary()
 # Write your code here
 model.compile(optimizer="adam",
