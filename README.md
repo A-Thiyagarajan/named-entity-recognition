@@ -17,7 +17,7 @@ Create the model with LSTM
 ### STEP 3:
 Compile the model 
 ### STEP 4:
-Train and test the model with datas.
+Train and test the model with datas
 
 
 ## PROGRAM
